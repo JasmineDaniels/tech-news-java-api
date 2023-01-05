@@ -20,7 +20,7 @@ public class Post implements Serializable {
     private String postUrl;
     @Transient
     private String userName;
-    @Transient
+    @Transient //voteCount is not persisted to the db
     private int voteCount;
     private Integer userId;
     @NotNull

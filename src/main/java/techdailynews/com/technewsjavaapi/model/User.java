@@ -16,7 +16,7 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO) //set id auto increment
     private Integer id;
     private String username;
-    @Column(unique = true) // unique: true
+    @Column(unique = true) //unique: true
     private String email;
     private String password;
     @Transient //Do NOT persist to database
@@ -25,7 +25,7 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Post> posts;
 
-    // Need to use FetchType.LAZY to resolve multiple bags exception
+    //Need to use FetchType.LAZY to resolve multiple bags exception
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Vote> votes;
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
