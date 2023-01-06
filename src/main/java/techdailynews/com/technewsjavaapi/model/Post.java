@@ -46,7 +46,7 @@ public class Post implements Serializable {
         this.voteCount = voteCount;
         this.userId = userId;
     }
-
+    //getters and setters
     public Integer getId() {
         return id;
     }

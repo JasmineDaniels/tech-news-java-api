@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 import techdailynews.com.technewsjavaapi.model.Vote;
 
 public interface VoteRepository extends JpaRepository<Vote, Integer> {
-    // this method takes in 2 args, Post id & Vote id??
+    // this custom  method takes in 2 args, Post id & Vote id??
     // @Param is a method level annotation
     @Query("SELECT count(*) FROM Vote v where v.postId = :id")
     int countVotesByPostId(@Param("id") Integer id);

@@ -3,7 +3,7 @@ package techdailynews.com.technewsjavaapi.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-import javax.xml.stream.events.Comment;
+//import javax.xml.stream.events.Comment;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
