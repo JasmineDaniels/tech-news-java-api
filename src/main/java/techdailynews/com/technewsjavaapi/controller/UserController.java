@@ -77,7 +77,7 @@ public class UserController {
     }
 
     @DeleteMapping("/api/users/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT) //nothing to return so send the status
+    @ResponseStatus(HttpStatus.NO_CONTENT) //nothing to return so send status 204
     public void deleteUser(@PathVariable int id) { //void deleteUser method
         repository.deleteById(id);
     }

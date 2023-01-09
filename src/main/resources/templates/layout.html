@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Just Tech News</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1>
+            <a href="/">Just Tech News</a>
+        </h1>
+        <nav>
+            <--Thymeleaf conditional rendering-->
+<!--            if loggedIn, show dash/logout-->
+            <div th:if="${loggedIn}">
+                <a th:href="@{/dashboard}">dashboard</a>
+                <a th:href="@{/users/logout}">logout</a>
+            </div>
+<!--            else show login screen-->
+            <div th:unless="${loggedIn}">
+                <a th:href="@{/login}">login</a>
+            </div>
+        </nav>
+    </header>
+<!--    allows for other templates to be rendered-->
+    <main layout:fragment="content">
+        <p>This is filled by the content template.</p>
+    </main>
+
+    <footer>
+        Thanks for visiting!
+    </footer>
+</div>
+
+</body>
+</html>
