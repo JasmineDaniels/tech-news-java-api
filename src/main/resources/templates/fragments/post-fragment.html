@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Just Tech News</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<article class="post" th:fragment="post-fragment">
+  <div class="title">
+<!--    conditional rendering-->
+    <a th:href="@{ ${post.postUrl} }" target="_blank">[[${post.title}]]</a>
+
+<!--    URL Format Helper-->
+<!--    if this post URL string contains "http://" -->
+    <div th:if="${#strings.contains(post.postUrl, 'http://')}">
+<!--     split "http://" and replace url strings with " "-->
+      <div th:with="arg=${#strings.replace(post.postUrl,'http://','')}">
+<!--        if the string contains a / , split off the / and show string[0]-->
+        <div th:if="${#strings.contains(arg, '/')}">
+          <div th:with="arg2=${#strings.arraySplit(arg, '/')}">
+
+            <span th:text="${#strings.toString(arg2[0])}"></span>
+          </div>
+        </div>
+<!--        if the string does not contain a / , show this-->
+        <div th:unless="${#strings.contains(arg, '/')}">
+<!--          if string contains ?, split off ? and display string[0]-->
+          <div th:if="${#strings.contains(arg, '?')}">
+            <div th:with="arg2=${#strings.arraySplit(arg, '?')}">
+              <span th:text="${#strings.toString(arg2[0])}"></span>
+            </div>
+          </div>
+<!--          if string does not contain ?, display string-->
+          <div th:unless="${#strings.contains(arg, '?')}">
+            <span th:text="${#strings.toString(arg)}"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--    if this post URL string contains "https://" -->
+    <div th:if="${#strings.contains(post.postUrl, 'https://')}">
+      <div th:with="arg=${#strings.replace(post.postUrl,'https://','')}">
+        <div th:if="${#strings.contains(arg, '/')}">
+          <div th:with="arg2=${#strings.arraySplit(arg, '/')}">
+            <span th:text="${#strings.toString(arg2[0])}"></span>
+          </div>
+        </div>
+        <div th:unless="${#strings.contains(arg, '/')}">
+          <div th:if="${#strings.contains(arg, '?')}">
+            <div th:with="arg2=${#strings.arraySplit(arg, '?')}">
+              <span th:text="${#strings.toString(arg2[0])}"></span>
+            </div>
+          </div>
+          <div th:unless="${#strings.contains(arg, '?')}">
+            <span th:text="${#strings.toString(arg)}"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div th:if="${#strings.contains(post.postUrl, 'www.')}">
+      <div th:with="arg=${#strings.replace(post.postUrl,'www.','')}">
+        <div th:if="${#strings.contains(arg, '/')}">
+          <div th:with="arg2=${#strings.arraySplit(arg, '/')}">
+            <span th:text="${#strings.toString(arg2[0])}"></span>
+          </div>
+        </div>
+        <div th:unless="${#strings.contains(arg, '/')}">
+          <div th:if="${#strings.contains(arg, '?')}">
+            <div th:with="arg2=${#strings.arraySplit(arg, '?')}">
+              <span th:text="${#strings.toString(arg2[0])}"></span>
+            </div>
+          </div>
+          <div th:unless="${#strings.contains(arg, '?')}">
+            <span th:text="${#strings.toString(arg)}"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div th:if="${post.voteCount == 1}" class="meta">
+      [[${post.voteCount}]] point by [[${post.userName}]] on
+<!--      Date Format Helper-->
+      <span th:text="${#dates.format(post.postedAt, 'MM-dd-YY')}"></span>
+<!--      if this post's comments are > 1 name the section comments, else name the title comment-->
+      <a th:href="@{/post/{id}(id=${post.id})}" th:if="${post.comments.size() == 1}">[[${post.comments.size()}]]
+        comment</a>
+      <a th:href="@{/post/{id}(id=${post.id})}" th:unless="${post.comments.size() == 1}">[[${post.comments.size()}]]
+        comments</a>
+    </div>
+    <div th:unless="${post.voteCount == 1}" class="meta">
+      [[${post.voteCount}]] points by [[${post.userName}]] on
+      <span th:text="${#dates.format(post.postedAt, 'MM-dd-YY')}"></span>
+      |
+      <a th:href="@{/post/{id}(id=${post.id})}" th:if="${post.comments.size() == 1}">[[${post.comments.size()}]]
+        comment</a>
+      <a th:href="@{/post/{id}(id=${post.id})}" th:unless="${post.comments.size() == 1}">[[${post.comments.size()}]]
+        comments</a>
+    </div>
+  </div>
+</article>
+
+</body>
