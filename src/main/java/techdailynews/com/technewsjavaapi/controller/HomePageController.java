@@ -34,7 +34,7 @@ public class HomePageController {
     @Autowired
     CommentRepository commentRepository;
 
-    @GetMapping("/login")
+    @GetMapping("/login") //get the login view
     //the Model object is inherited functionality from Spring ui, model is the mapped variable
     public String login(Model model, HttpServletRequest request) {
 
