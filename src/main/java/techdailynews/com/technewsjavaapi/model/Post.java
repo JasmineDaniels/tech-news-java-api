@@ -14,7 +14,7 @@ import java.util.Objects;
 @Table(name = "post")
 public class Post implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String postUrl;

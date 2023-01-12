@@ -13,7 +13,7 @@ import java.util.Objects;
 @Table(name = "user")
 public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //set id auto increment
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //set id auto increment GenerationType.AUTO
     private Integer id;
     private String username;
     @Column(unique = true) //unique: true
