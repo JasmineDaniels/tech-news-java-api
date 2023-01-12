@@ -206,7 +206,6 @@ public class HomePageController {
     public Model setupEditPostPage(int id, Model model, HttpServletRequest request) {
         if (request.getSession(false) != null) {
             User sessionUser = (User) request.getSession().getAttribute("SESSION_USER");
-
             Post returnPost = postRepository.getById(id);
             User tempUser = userRepository.getById(returnPost.getUserId());
             returnPost.setUserName(tempUser.getUsername());

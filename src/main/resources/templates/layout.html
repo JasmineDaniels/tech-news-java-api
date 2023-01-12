@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!--    makes the title dynamic so title changes when the layout changes-->
     <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Just Tech News</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div class="wrapper">
-    <header>
+    <header class="mt-2">
         <h1>
-            <a href="/">Just Tech News</a>
+            <a href="/">Tech News Daily</a>
         </h1>
         <nav>
             <!--Thymeleaf conditional rendering-->
@@ -28,13 +30,90 @@
     </header>
 <!--    allows for other templates to be rendered-->
     <main layout:fragment="content">
-        <p>This is filled by the content template.</p>
+<!--        This is filled by the content template -->
     </main>
 
-    <footer>
-        Thanks for visiting!
+<!--    <footer>-->
+<!--        Thanks for visiting!-->
+<!--    </footer>-->
+    <footer
+            class="text-center text-lg-start text-white"
+            style="background-color: #225ca3; position: fixed; left: 0; bottom: 0; right: 0; margin-top: auto !important;"
+    >
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div >
+                        <h5 class="text-uppercase">Thanks for Visiting!</h5>
+
+                        <p class="text-center">
+                            To learn more or contribute please contact us via the links below.
+
+                        </p>
+                    </div>
+
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+
+            <hr class="mb-4" />
+
+            <!-- Section: Social media -->
+            <section class="mb-4 text-center">
+                <!-- Google -->
+                <a
+                        class="btn btn-outline-light btn-floating m-1"
+                        role="button"
+                        href="mailto:create.jasminedaniels@gmail.com"
+                ><i class="fab fa-google"></i
+                ></a>
+
+                <!-- Linkedin -->
+                <a
+                        class="btn btn-outline-light btn-floating m-1"
+                        href="https://www.linkedin.com/in/jasmine-daniels-3a15a1235/"
+                        role="button"
+                ><i class="fab fa-linkedin-in"></i
+                ></a>
+
+                <!-- Github -->
+                <a
+                        class="btn btn-outline-light btn-floating m-1"
+                        href="https://github.com/JasmineDaniels"
+                        role="button"
+                ><i class="fab fa-github"></i
+                ></a>
+
+<!--                Website-->
+                <a
+                        class="btn btn-outline-light btn-floating m-1"
+                        href="https://jasminedaniels.github.io/Portfolio-02/"
+                        role="button"
+                ><i class="fa fa-globe" aria-hidden="true"></i></i
+                ></a>
+            </section>
+            <!-- Section: Social media -->
+
+            <hr class="mb-4" />
+
+            <!-- Copyright -->
+            <div
+                    class="text-center mb-3"
+            >
+                Powered By:
+                <a class="text-white" href="https://jasminedaniels.github.io/Portfolio-02/"
+                >Jasmine Daniels</a
+                >
+            </div>
+        </div>
+        <!-- Grid container -->
     </footer>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

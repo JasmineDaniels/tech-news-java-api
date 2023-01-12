@@ -82,12 +82,17 @@ public class TechNewsController {
 
         User sessionUser = userRepository.findUserByEmail(user.getEmail());
 
-        try {
-            if (sessionUser.equals(null)) {
+//        try {
+//            if (sessionUser.equals(null)) {
+//
+//            }
+//        } catch (NullPointerException e) {
+//            model.addAttribute("notice", "User is not recognized!");
+//            return "login";
+//        }
 
-            }
-        } catch (NullPointerException e) {
-            model.addAttribute("notice", "User is not recognized!");
+        if (sessionUser.equals(null)){
+            model.addAttribute("notice", "Opps! Internal Server Error. Please try again.");
             return "login";
         }
 
