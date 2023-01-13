@@ -14,7 +14,7 @@
     <h3>[[${notice}]]</h3>
   </div>
 
-  <section class="mt-3">
+  <section class="mt-3 p-4">
     <h2 style="color: #225ca3"> Create New Post</h2>
 
     <form action="#" th:action="@{/posts}" th:object="${post}" method="post" class="new-post-form">
@@ -30,7 +30,7 @@
     </form>
   </section>
 
-  <section th:if="${postList.size() > 0}">
+  <section class="p-4" th:if="${postList.size() > 0}">
     <h2>Your Posts</h2>
     <ol>
       <li th:each="post : ${postList}">
